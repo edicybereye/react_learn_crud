@@ -49,7 +49,7 @@ export default class JurusanList extends Component {
                             <tr>
                                 <td>{index + 1}</td>
                                 <td>{data.major_name}</td>
-                                <td><button className="btn btn-warning">Detail</button></td>
+                                <td><Link to={'../jurusan/' + data.majorsId} className="btn btn-warning">Detail</Link></td>
 
                             </tr>
                         ))}

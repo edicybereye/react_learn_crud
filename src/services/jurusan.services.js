@@ -5,9 +5,9 @@ class JurusanServices {
         return http.get("/jurusan");
         // console.log("");
     }
-    // get(id) {
-    //     return http.get("/jurusan/".id);
-    // }
+    get(id) {
+        return http.get("/jurusan/" + id);
+    }
 
     tambah(data) {
         return http.post("jurusan/add", data)
