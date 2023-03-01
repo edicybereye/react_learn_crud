@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import JurusanServices from "../services/jurusan.services";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default class JurusanList extends Component {
     state = {
@@ -33,7 +33,9 @@ export default class JurusanList extends Component {
         return (
             <div>
                 <h4>Data Majors</h4>
-                <button className="btn btn-primary" style={{ marginBottom: 16 }}>Tambah Jurusan</button>
+                <Link
+                    to={'/tambah-jurusan'}
+                    className="btn btn-primary" style={{ marginBottom: 16 }}>Tambah Jurusan</Link>
                 <table className="table table-hover table-bordered">
                     <thead>
                         <tr>
@@ -48,7 +50,7 @@ export default class JurusanList extends Component {
                                 <td>{index + 1}</td>
                                 <td>{data.major_name}</td>
                                 <td><button className="btn btn-warning">Detail</button></td>
-                                
+
                             </tr>
                         ))}
 
