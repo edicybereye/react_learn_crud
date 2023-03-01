@@ -43,6 +43,8 @@ export default class AddJurusan extends Component {
                     nama: "",
                 });
 
+                window.location.replace("majors");
+
             }
             console.log(e.data.success);
 

@@ -69,6 +69,8 @@ class Jurusan extends Component {
 
             console.log(e.data.success);
 
+            window.location.replace("../majors");
+
         }))
     }
 
@@ -76,8 +78,6 @@ class Jurusan extends Component {
     delete() {
         var data = {
             id: this.state.jurusan.majorsId,
-            
-
         };
 
         JurusanServices.hapus(data).then((e => {
@@ -87,6 +87,8 @@ class Jurusan extends Component {
             });
 
             console.log(e.data.success);
+
+            window.location.replace("../majors");
 
         }))
     }
