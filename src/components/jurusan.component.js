@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import JurusanServices from "../services/jurusan.services";
 import { withRouter } from "../common/with-router";
+import swal from "sweetalert";
 class Jurusan extends Component {
     state = {
         jurusan: {
@@ -68,7 +69,8 @@ class Jurusan extends Component {
             });
 
             console.log(e.data.success);
-
+            swal("Ok! Data Berhasil diedit!", {
+                icon: "success",});
             window.location.replace("../majors");
 
         }))
@@ -80,17 +82,32 @@ class Jurusan extends Component {
             id: this.state.jurusan.majorsId,
         };
 
-        JurusanServices.hapus(data).then((e => {
-            this.setState({
-                id: e.data.id,
+        swal({
+            title :  "Hapus data",
+            text : "Anda akan menghapus data ini?",
+            icon : "warning",
+            buttons : true,
+            dangerMode : true
+        }).then((willDelete)=>{
+            if(willDelete){
+                JurusanServices.hapus(data).then((e => {
+                    this.setState({
+                        id: e.data.id,
+        
+                    });
+        
+                    console.log(e.data.success);
+                    swal("Berhasil dihapus", {icon : "success"});    
+                    window.location.replace("../majors");
+        
+                }))
+            }else{
+                swal("Membatalkan penghapusan", {icon : "success"});
+            }
+            
+        });
 
-            });
-
-            console.log(e.data.success);
-
-            window.location.replace("../majors");
-
-        }))
+       
     }
 
     render() {

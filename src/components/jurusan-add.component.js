@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import JurusanServices from "../services/jurusan.services";
+import swal from "sweetalert";
 
 export default class AddJurusan extends Component {
     state = {
@@ -42,7 +43,8 @@ export default class AddJurusan extends Component {
                     id: "",
                     nama: "",
                 });
-
+                swal("Ok! Data Berhasil ditambahkan!", {
+                    icon: "success",});
                 window.location.replace("majors");
 
             }
